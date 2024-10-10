@@ -14,6 +14,6 @@ namespace ProgrammingTemplateApp.Models
         [Required(ErrorMessage = "Programming language is required"), MaxLength(60)]
         public string ProgrammingLanguage { get; set; } // Programming language in which the template is created
         public DateTime? CreatedDate { get; set; } // Date and time in which the template is created
-        public ICollection<Purchase>? Purchases { get; set; }
+        public ICollection<Purchase>? Purchases { get; set; } // For one to many relationships
     }
 }
