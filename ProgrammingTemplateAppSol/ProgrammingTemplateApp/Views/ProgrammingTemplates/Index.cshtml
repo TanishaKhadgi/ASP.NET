@@ -1,0 +1,59 @@
+﻿@model IEnumerable<ProgrammingTemplateApp.Models.ProgrammingTemplate>
+
+@{
+    ViewData["Title"] = "ProgrammingTemplates";
+}
+
+<h1>Explore Programming Templates</h1>
+
+<p>
+    <a asp-action="Create">Create a new template</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Title)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Description)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Price)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ProgrammingLanguage)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CreatedDate)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Title)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Description)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Price)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ProgrammingLanguage)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CreatedDate)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.ProgrammingTemplateId">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.ProgrammingTemplateId">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.ProgrammingTemplateId">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

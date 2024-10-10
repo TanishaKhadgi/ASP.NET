@@ -1,0 +1,53 @@
+﻿@model IEnumerable<ProgrammingTemplateApp.Models.Purchase>
+
+@{
+    ViewData["Title"] = "Purchases";
+}
+
+<h1>Purchase Programming Templates</h1>
+
+<p>
+    <a asp-action="Create">Get a new purchase</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.PurchaseName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.PurchaseDate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.PurchaseAmountWithTax)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ProgrammingTemplate)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.PurchaseName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PurchaseDate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PurchaseAmountWithTax)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ProgrammingTemplate.ProgrammingTemplateId)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.PurchaseId">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.PurchaseId">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.PurchaseId">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
